@@ -84,7 +84,7 @@ pipeline {
         GIT_USER_NAME = "rajatbhagat94"
     }
     steps {
-        withCredentials([string(credentialsId: 'github', variable: 'github-variable')]) {
+        withCredentials([string(credentialsId: 'github-credentials', variable: 'github-cred')]) {
             script {
                 // Print current working directory for debugging
                 sh 'pwd'
