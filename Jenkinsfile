@@ -94,7 +94,8 @@ pipeline {
                 sh 'git config user.name "rajatbhagat5"'
 
                 // Update deployment.yml
-                sh ' sudo -S sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" vprofile-project/deployment.yaml'
+                sh "echo 'jenkins' | sudo -S sed -i 's/replaceImageTag/${BUILD_NUMBER}/g' vprofile-project/deployment.yaml"
+
 
                 // Add, commit, and push changes
                 sh '''
