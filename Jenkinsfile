@@ -90,8 +90,8 @@ pipeline {
                 sh 'pwd'
 
                 // Configure Git user
-                sh 'git config user.email "rajat66@gmail.com"'
-                sh 'git config user.name "Rajat66"'
+                sh 'git config user.email "rajat@gmail.com"'
+                sh 'git config user.name "rajatbhagat5"'
 
                 // Update deployment.yml
                 sh 'sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" vprofile-project/manifest/deployment.yml'
