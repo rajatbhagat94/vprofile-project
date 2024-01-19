@@ -62,18 +62,18 @@ pipeline {
         stage('docker_build_push'){
 		environment {
 			 DOCKERHUB_CREDENTIALS = credentials ('dockerhub-cred')
-			 DOCKER_IMAGE = dockerhub1994/app-test:${BUILD_NUMBER}
+		      // DOCKER_IMAGE = dockerhub1994/app-test:${BUILD_NUMBER}
 		}
 		 steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t ${DOCKER_IMAGE} .'
+                    sh 'docker build -t dockerhub1994/app-test:20 .'
 
                     // Login to Dockerhub
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
                     // Push to Dockerhub
-                    sh 'docker push ${DOCKER_IMAGE}'
+                    sh 'docker push dockerhub1994/app-test:20'
                 }
             }
 	}
