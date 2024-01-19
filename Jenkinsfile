@@ -84,7 +84,7 @@ pipeline {
         GIT_USER_NAME = "rajatbhagat94"
     }
     steps {
-        withCredentials([string(credentialsId: 'github-credentials', variable: 'github-cred')]) {
+       withCredentials([string(credentialsId: 'github', variable: 'hi')]) {
             script {
                 // Print current working directory for debugging
                 sh 'pwd'
@@ -101,7 +101,7 @@ pipeline {
                 sh '''
                     git add deployment.yaml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git push https://${github-variable}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                    git push https://${hi}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
         }
