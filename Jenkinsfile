@@ -79,17 +79,25 @@ pipeline {
             }
         }
 	    stage('Update Deployment File') {
-        environment {
-            GIT_REPO_NAME = "vprofile-project"
-            GIT_USER_NAME = "rajatbhagat94"
-        }
-        steps {
-            withCredentials([string(credentialsId: 'github', variable: 'github-variable')]) {
+    environment {
+        GIT_REPO_NAME = "vprofile-project"
+        GIT_USER_NAME = "rajatbhagat94"
+    }
+    steps {
+        withCredentials([string(credentialsId: 'github', variable: 'github-variable')]) {
+            script {
+                // Print current working directory for debugging
+                sh 'pwd'
+
+                // Configure Git user
+                sh 'git config user.email "rajat66@gmail.com"'
+                sh 'git config user.name "Rajat66"'
+
+                // Update deployment.yml
+                sh 'sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" vprofile-project/manifest/deployment.yml'
+
+                // Add, commit, and push changes
                 sh '''
-                    git config user.email "rajat66@gmail.com"
-                    git config user.name "Rajat66"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" vprofile-project/manifest/deployment.yml
                     git add vprofile-project/manifest/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${github-variable}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
@@ -97,6 +105,8 @@ pipeline {
             }
         }
     }
+}
+
 
     }
 }
