@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: dockerhub1994/app-test:replaceImageTag
+        image: dockerhub1994/app-test:50
         ports:
         - containerPort: 8080
 
