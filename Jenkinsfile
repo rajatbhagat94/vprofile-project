@@ -99,7 +99,7 @@ pipeline {
 
                 // Add, commit, and push changes
                 sh '''
-                    git add deployment.yaml
+                    git add .
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${hi}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
