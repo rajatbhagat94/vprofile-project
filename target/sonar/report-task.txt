@@ -1,0 +1,6 @@
+projectKey=com.visualpathit:vprofile
+serverUrl=http://100.26.132.29:9000
+serverVersion=8.3.0.34182
+dashboardUrl=http://100.26.132.29:9000/dashboard?id=com.visualpathit%3Avprofile
+ceTaskId=AY0iOeWngygkVpGkHyPX
+ceTaskUrl=http://100.26.132.29:9000/api/ce/task?id=AY0iOeWngygkVpGkHyPX

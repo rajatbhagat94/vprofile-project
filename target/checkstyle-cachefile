@@ -1,0 +1,5 @@
+#Fri Jan 19 14:57:02 UTC 2024
+configuration*?=900D4C78CA51ACFC565E7BD8A1755429CEC5EA59
+/var/lib/jenkins/workspace/first_job/src/main/resources/application.properties=1705669154238
+module-resource*?\:checkstyle-xpath-suppressions.xml=72F7C3F70C4ED4F99B1A9D3526DC31786BB5F98E
+module-resource*?\:checkstyle-suppressions.xml=C433A0A403AD182AB5558AF7D8EC101C0ED36A67

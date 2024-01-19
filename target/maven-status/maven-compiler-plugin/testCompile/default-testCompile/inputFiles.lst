@@ -1,0 +1,5 @@
+/var/lib/jenkins/workspace/first_job/src/test/java/com/visualpathit/account/modelTest/UserTest.java
+/var/lib/jenkins/workspace/first_job/src/test/java/com/visualpathit/account/controllerTest/SampleTest.java
+/var/lib/jenkins/workspace/first_job/src/test/java/com/visualpathit/account/setup/StandaloneMvcTestViewResolver.java
+/var/lib/jenkins/workspace/first_job/src/test/java/com/visualpathit/account/modelTest/RoleTest.java
+/var/lib/jenkins/workspace/first_job/src/test/java/com/visualpathit/account/controllerTest/UserControllerTest.java
