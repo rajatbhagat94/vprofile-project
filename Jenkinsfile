@@ -59,24 +59,25 @@ pipeline {
                 mail bcc: '', body: 'done with jobs', cc: '', from: '', replyTo: '', subject: 'Testing completed', to: 'rajatpbhagat@gmail.com'
             }
         }
-        stage('docker_build_push'){
-		environment {
-			 DOCKERHUB_CREDENTIALS = credentials ('dockerhub-cred')
-		      // DOCKER_IMAGE = dockerhub1994/app-test:${BUILD_NUMBER}
-		}
-		 steps {
+        stage('docker_build_push') {
+            environment {
+                DOCKERHUB_CREDENTIALS = credentials('dockerhub-cred')
+             // DOCKER_IMAGE_VERSION = env.BUILD_NUMBER
+                DOCKER_IMAGE = "dockerhub1994/app-test:${BUILD_NUMBER}"
+            }
+            steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t dockerhub1994/app-test:20 .'
+                    sh "docker build -t ${DOCKER_IMAGE} ."
 
                     // Login to Dockerhub
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
                     // Push to Dockerhub
-                    sh 'docker push dockerhub1994/app-test:20'
+                    sh "docker push ${DOCKER_IMAGE}"
                 }
             }
-	}
+        }
 
     }
 }
