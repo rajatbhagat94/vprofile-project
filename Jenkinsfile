@@ -99,7 +99,7 @@ pipeline {
 
                 // Add, commit, and push changes
                 sh '''
-                    git add vprofile-project/manifest/deployment.yml
+                    git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${github-variable}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
